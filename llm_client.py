@@ -1,9 +1,3 @@
-"""
-Общий модуль для обращения к LLM через OpenAI-совместимый API (LM Studio).
-
-Используется во всех этапах лабораторной работы (main.py, run_experiment.py).
-"""
-
 import os
 import time
 
@@ -30,11 +24,6 @@ SYSTEM_PROMPT = "Отвечай точно и по существу."
 
 
 def ask_model(prompt: str, system_prompt: str = SYSTEM_PROMPT) -> tuple[str, float]:
-    """
-    Отправляет один запрос модели и возвращает (текст_ответа, время_в_секундах).
-    Бросает исключение наверх — обработка ошибок делается в вызывающем коде,
-    чтобы можно было зафиксировать факт ошибки в результатах эксперимента.
-    """
     started = time.perf_counter()
 
     response = client.chat.completions.create(
@@ -51,6 +40,5 @@ def ask_model(prompt: str, system_prompt: str = SYSTEM_PROMPT) -> tuple[str, flo
 
 
 def list_available_models() -> list[str]:
-    """Возвращает список моделей, которые сервер LM Studio отдаёт сейчас."""
     models = client.models.list()
     return [m.id for m in models.data]

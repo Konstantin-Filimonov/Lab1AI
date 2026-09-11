@@ -1,12 +1,3 @@
-"""
-Этап 4. Подготовка шаблона для ручной оценки ответов.
-
-Берёт results/experiment_results.csv и создаёт results/scoring_template.csv
-с пустыми столбцами под 4 критерия оценки (0-2 балла каждый, п. 8.5 методички).
-Откройте получившийся файл в Excel/LibreOffice и проставьте баллы вручную,
-сверяясь со столбцом answer.
-"""
-
 import pandas as pd
 
 INPUT_PATH = "results/experiment_results.csv"
